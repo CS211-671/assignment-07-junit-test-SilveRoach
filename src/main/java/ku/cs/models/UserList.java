@@ -1,6 +1,7 @@
 package ku.cs.models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class UserList {
     private ArrayList<User> users;
@@ -29,12 +30,30 @@ public class UserList {
     //TODO: implements this method to change user's password to newPassword by verified oldPassword
     //TODO: return true if process is completed, otherwise return false
     public boolean changePassword(String username, String oldPassword, String newPassword) {
-        return false;
+        User exist = findUserByUsername(username);
+        if (!newPassword.trim().isEmpty()) {
+            if (exist.validatePassword(oldPassword)) {
+                exist.setPassword(newPassword.trim());
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     //TODO: implements this method to find user in users with valid password
     //TODO: return User object if username and password is correct, otherwise return null
     public User login(String username, String password) {
-        return null;
+        User user = findUserByUsername(username);
+        if  (user.equals(null)) {
+            return null;
+        }
+        if (user.validatePassword(password)) {
+            return user;
+        } else {
+            return null;
+        }
     }
 }
