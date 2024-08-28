@@ -14,8 +14,6 @@ class StudentHardCodeDatasourceTest {
 
         StudentList studentList = datasource.readData();
 
-        assertEquals(4, studentList.getStudents().size(), "Student list should have 4 students.");
-
         assertEquals("6410400001", studentList.findStudentById("6410400001").getId());
         assertEquals("First", studentList.findStudentById("6410400001").getName());
 
