@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StudentListTest {
     @Test
-    @DisplayName("เพิ่ม student ไปใน studentList ผ่านการใช้งาน ID, ชื่อ, เเละมีหรือไม่มีคะเเนนดี")
+    @DisplayName("เพิ่ม student ไปใน studentList ผ่านการใช้งาน ID, ชื่อ, เเละมีหรือไม่มีคะเเนนได้")
     void testStudentListAddNewStudent() {
         StudentList studentList = new StudentList();
         studentList.addNewStudent("6655443322", "Bob");
