@@ -16,7 +16,6 @@ class StudentTest {
     @Test
     @DisplayName("ทดสอบการเพิ่มคะแนน 40 เเละ 30 คะแนน")
     void testAddScore() {
-        //Student s1 = new Student("6xxxxxxxxx", "kong");
         s1.addScore(40);
         assertEquals(40, s1.getScore());
         s1.addScore(30);
@@ -45,4 +44,35 @@ class StudentTest {
         assertTrue(s2.isId("6650403022"));
     }
 
+    @Test
+    @DisplayName("ทดสอบการทำ toString ของ s1 เเละ s2")
+    void testToString() {
+        Student s2 = new Student("6650403022", "Ball", 95);
+
+        String result1 = s1.toString();
+        String result2 = s2.toString();
+
+        String expected1 = "{id: '6xxxxxxxxx', name: 'kong', score: 0.0}";
+        String expected2 = "{id: '6650403022', name: 'Ball', score: 95.0}";
+        assertEquals(expected1, result1);
+        assertEquals(expected2, result2);
+    }
+
+    @Test
+    @DisplayName("ทดสอบ constructor เเบบมีเเละไม่มี score")
+    void testConstructor() {
+        Student s2 = new Student("6650403022", "Ball", 95);
+        Student s3 = new Student("6655443322", "Apple");
+
+        double result1 = s1.getScore();
+        double result2 = s2.getScore();
+        double result3 = s3.getScore();
+
+        double expected1 = 0.0;
+        double expected2 = 95.0;
+        double expected3 = 0.0;
+        assertEquals(expected1, result1);
+        assertEquals(expected2, result2);
+        assertEquals(expected3, result3);
+    }
 }
